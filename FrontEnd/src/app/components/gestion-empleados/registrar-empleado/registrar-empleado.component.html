@@ -1,0 +1,172 @@
+<form [formGroup]="this.gestionEmpleadoService.formularioRegistroEmpleado" (ngSubmit)="onSubmit()">
+
+    <!--Nombre del empleado-->
+    <div class="form-group">
+
+        <div class="input-group">
+
+            <div class="input-group-text bg-white">
+
+                    <i class="fa fa-user-circle" [class.blue-icon]="this.gestionEmpleadoService.Nombre.valid" [class.red-icon]="this.gestionEmpleadoService.Nombre.invalid && (this.gestionEmpleadoService.Nombre.touched || this.gestionEmpleadoService.Nombre.dirty)"></i>
+                    
+            </div>
+
+            <input type="hidden" formControlName="IdEmpleado" name="IdEmpleado">
+            <input name="Nombre" formControlName="Nombre" class="form-control" placeholder="Nombre del usuario"> 
+
+        </div>
+
+        <!--Validaciones-->
+
+        <div *ngIf="this.gestionEmpleadoService.Nombre.invalid && (this.gestionEmpleadoService.Nombre.touched || this.gestionEmpleadoService.Nombre.dirty)" class="alert alert-danger">
+
+            <div *ngIf="this.gestionEmpleadoService.Nombre.hasError('required')">
+
+                El nombre del empleado es requerido
+
+            </div>
+
+            <div *ngIf="this.gestionEmpleadoService.Nombre.hasError('pattern')">
+
+                El nombre debe contener solo letras
+
+            </div>
+              
+        </div>
+
+    </div> 
+
+    
+
+    <!--Dirección del empleado-->
+
+    <div class="form-group ">
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fa fa-home" [class.blue-icon]="this.gestionEmpleadoService.Direccion.valid" [class.red-icon]="this.gestionEmpleadoService.Direccion.invalid && (this.gestionEmpleadoService.Direccion.touched || this.gestionEmpleadoService.Direccion.dirty)"></i>
+                </div>
+                
+            </div>           
+
+            <input name="Direccion" formControlName = "Direccion" class="form-control" placeholder="Dirección del usuario">                     
+
+        </div> 
+        
+        <div *ngIf="this.gestionEmpleadoService.Direccion.invalid && (this.gestionEmpleadoService.Direccion.touched || this.gestionEmpleadoService.Direccion.dirty)" class="alert alert-danger">
+
+            <div *ngIf="this.gestionEmpleadoService.Direccion.hasError('required')">
+
+                La dirección del empleado es requerida
+
+            </div>
+
+            <div *ngIf="this.gestionEmpleadoService.Direccion.hasError('maxlength')">
+
+                    La dirección del empleado debe tener máximo 60 carácteres
+    
+            </div>
+                  
+        </div>
+            
+    </div>  
+
+    <div class="row">    
+
+        <!--Teléfono-->
+        
+        <div class="form-group col-md-6">
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text bg-white">
+                        <i class="fa fa-phone" [class.blue-icon]="this.gestionEmpleadoService.Telefono.valid" [class.red-icon]="this.gestionEmpleadoService.Telefono.invalid && (this.gestionEmpleadoService.Telefono.touched || this.gestionEmpleadoService.Telefono.dirty)"></i>
+                    </div>
+                    
+                </div>           
+
+                <input name="Telefono" formControlName = "Telefono" class="form-control" placeholder="Teléfono">                     
+
+            </div> 
+
+        <!--Validaciones-->
+
+            <div *ngIf="this.gestionEmpleadoService.Telefono.invalid && (this.gestionEmpleadoService.Telefono.touched || this.gestionEmpleadoService.Telefono.dirty)" class="alert alert-danger">
+
+                <div *ngIf="this.gestionEmpleadoService.Telefono.hasError('required')">
+    
+                    El teléfono del empleado es requerido
+    
+                </div>
+
+                <div *ngIf="this.gestionEmpleadoService.Telefono.hasError('minlength')">
+    
+                    El teléfono del empleado debe tener mínimo 5 carácteres
+    
+                </div>
+
+                <div *ngIf="this.gestionEmpleadoService.Telefono.hasError('maxlength')">
+
+                    El teléfono del empleado debe tener máximo 15 carácteres
+        
+                </div>
+
+                <div *ngIf="this.gestionEmpleadoService.Telefono.hasError('pattern')">
+
+                    El teléfono del empleado debe contener solo números
+            
+                </div>
+                  
+            </div>
+            
+            
+                
+        </div>  
+
+        <!--Email-->
+            
+        <div class="form-group col-md-6">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text bg-white">
+                        <i class="fa fa-at" [class.blue-icon]="this.gestionEmpleadoService.Email.valid" [class.red-icon]="this.gestionEmpleadoService.Email.invalid && (this.gestionEmpleadoService.Email.touched || this.gestionEmpleadoService.Email.dirty)"></i>
+                    </div>                
+                </div>  
+                <input name="Email" formControlName = "Email" class="form-control" placeholder="Email">                     
+
+            </div>
+            
+            <!--Validaciones-->
+
+            <div *ngIf="this.gestionEmpleadoService.Email.invalid && (this.gestionEmpleadoService.Email.touched || this.gestionEmpleadoService.Email.dirty)" class="alert alert-danger">
+
+                    <div *ngIf="this.gestionEmpleadoService.Email.hasError('required')">
+        
+                        El email del empleado es requerido
+        
+                    </div>
+
+                    <div *ngIf="this.gestionEmpleadoService.Email.hasError('maxlength')">
+    
+                            El email del empleado debe tener máximo 40 carácteres
+            
+                    </div>
+
+                    <div *ngIf="this.gestionEmpleadoService.Email.hasError('pattern')">
+    
+                            El email del empleado debe tener un formato de correo
+            
+                    </div>
+                      
+                </div>
+            
+        </div>
+
+    </div>
+
+    <div class="form-group">
+            <button class="btn btn-primary btn-lg btn-block" [disabled]="this.gestionEmpleadoService.formularioRegistroEmpleado.invalid"  type="submit"> <i class="fa fa-save"></i> Aceptar</button>
+    </div>
+
+</form>

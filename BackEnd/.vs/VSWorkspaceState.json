@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\APIGestionPedidos",
+    "\\APIGestionPedidos\\APIGestionPedidos",
+    "\\APIGestionPedidos\\APIGestionPedidos\\Models",
+    "\\APIGestionPedidos\\APIGestionPedidos\\Models\\DAL",
+    "\\APIGestionPedidos\\APIGestionPedidos\\Models\\Entities"
+  ],
+  "SelectedNode": "\\APIGestionPedidos\\APIGestionPedidos\\appsettings.json",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,0 +1,260 @@
+<div class="row">
+
+    <div class="col-md-4 offset-4">
+  
+      <form class="text-center border border-light p-5" [formGroup]="this.usuarioService.formularioRegistroUsuario" (ngSubmit)="this.onSubmit()">
+  
+          <p class="h4 mb-4 contenedor-titulo">Registrarse</p>
+        
+  
+          <!-- Nombre de usuario y el ID hidden -->
+  
+          <div class="input-group mb-4">
+  
+            <div class="input-group-text bg-white">
+  
+                <i class="fa fa-user" [class.icono-azul]= "usuarioService.NombreUsuario.valid" [class.icono-rojo]= "this.usuarioService.NombreUsuario.invalid && (this.usuarioService.NombreUsuario.touched || this.usuarioService.NombreUsuario.dirty)"></i>
+                      
+            </div>        
+  
+            
+            <input class="form-control" formControlName="NombreUsuario" placeholder="Nombre de usuario">  
+  
+          </div>
+  
+          <!--Validaciones-->
+  
+          <div *ngIf="this.usuarioService.NombreUsuario.invalid && (this.usuarioService.NombreUsuario.touched || this.usuarioService.NombreUsuario.dirty)" class="alert alert-danger">
+  
+            <div *ngIf="this.usuarioService.NombreUsuario.hasError('required')">
+  
+                El nombre de usuario es requerido
+  
+            </div>
+  
+            <div *ngIf="this.usuarioService.NombreUsuario.hasError('pattern')">
+  
+                El nombre de usuario no debe contener caracteres especiales
+  
+            </div>
+  
+            <div *ngIf="this.usuarioService.NombreUsuario.hasError('maxlength')">
+  
+                El nombre de usuario debe contener máximo 20 caracteres
+  
+            </div>
+                
+          </div>      
+          
+          
+  
+          <!-- Nombre completo -->
+  
+          <div class="input-group mb-4">
+  
+              <div class="input-group-text bg-white">
+      
+                  <i class="fa fa-user-circle" [class.icono-azul]= "usuarioService.Nombre.valid" [class.icono-rojo]= "this.usuarioService.NombreUsuario.invalid && (this.usuarioService.NombreUsuario.touched || this.usuarioService.NombreUsuario.dirty)"></i>
+                        
+              </div>        
+      
+              
+              <input class="form-control" formControlName="Nombre" placeholder="Nombre completo">  
+      
+            </div>
+      
+            <!--Validaciones-->
+      
+            <div *ngIf="this.usuarioService.Nombre.invalid && (this.usuarioService.Nombre.touched || this.usuarioService.Nombre.dirty)" class="alert alert-danger">
+      
+              <div *ngIf="this.usuarioService.Nombre.hasError('required')">
+      
+                  El nombre completo es requerido
+      
+              </div>
+      
+              <div *ngIf="this.usuarioService.Nombre.hasError('pattern')">
+      
+                  El nombre  debe contener sólo letras
+      
+              </div>
+  
+              <div *ngIf="this.usuarioService.Nombre.hasError('maxlength')">
+  
+                  El nombre  debe contener máximo 40 caracteres
+      
+              </div>
+                  
+            </div>   
+        
+  
+          <!-- E-mail -->
+  
+          <div class="input-group mb-4">
+  
+            <div class="input-group-text bg-white">
+  
+                <i class="fa fa-at" [class.icono-azul]= "usuarioService.Email.valid" [class.icono-rojo]= "this.usuarioService.Email.invalid && (this.usuarioService.Email.touched || this.usuarioService.Email.dirty)"></i>
+                      
+            </div>        
+  
+            
+            <input class="form-control" formControlName="Email" placeholder="Email">  
+  
+          </div>
+  
+          <!--Validaciones-->
+  
+          <div *ngIf="this.usuarioService.Email.invalid && (this.usuarioService.Email.touched || this.usuarioService.Email.dirty)" class="alert alert-danger">
+  
+            <div *ngIf="this.usuarioService.Email.hasError('required')">
+  
+                El Email es requerido
+  
+            </div>
+  
+            <div *ngIf="this.usuarioService.Email.hasError('pattern')">
+  
+                Formato de correo invalido
+  
+            </div>
+  
+            <div *ngIf="this.usuarioService.Email.hasError('maxlength')">
+  
+                El nombre  debe contener máximo 40 caracteres
+  
+            </div>
+                
+          </div> 
+
+          <div class="input-group mb-4">
+  
+            <div class="input-group-text bg-white">
+  
+                <i class="fa fa-address-book"></i>
+                      
+            </div>                   
+            
+            <input class="form-control" formControlName="Direccion"  placeholder="Dirección">  
+
+          </div>
+
+
+
+
+          <div class="input-group mb-4">
+  
+            <div class="input-group-text bg-white">
+  
+                <i class="fa fa-phone"></i>
+                      
+            </div>        
+  
+            
+            <input class="form-control" formControlName="Telefono" placeholder="Teléfono">  
+  
+          </div>
+
+  
+          <!-- Password -->
+  
+          <div class="input-group mb-4">
+  
+              <div class="input-group-text bg-white">
+      
+                  <i class="fa fa-key" [class.icono-azul]= "usuarioService.Password.valid" [class.icono-rojo]= "this.usuarioService.Password.invalid && (this.usuarioService.Password.touched || this.usuarioService.Password.dirty)"></i>
+                        
+              </div>        
+      
+              
+              <input type="password" class="form-control" formControlName="Password" placeholder="Contraseña">           
+      
+          </div>
+      
+          <!--Validaciones-->
+  
+          <div *ngIf="this.usuarioService.Password.invalid && (this.usuarioService.Password.touched || this.usuarioService.Password.dirty)" class="alert alert-danger">
+  
+            <div *ngIf="this.usuarioService.Password.hasError('required')">
+                La contraseña es requerida
+            </div>
+  
+            <div *ngIf="this.usuarioService.Password.hasError('pattern')">
+                <small  class="form-text text-muted">
+                    La contraseña debe tener  entre 6 y 20 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula
+                </small>
+            </div>
+  
+            <div *ngIf="this.usuarioService.Password.hasError('maxlength')">
+  
+                La contraseña debe contener máximo 16 caracteres
+  
+            </div>
+                
+          </div> 
+          
+  
+          <!-- Password -->
+  
+          <div class="input-group mb-4">
+  
+              <div class="input-group-text bg-white">
+      
+                  <i class="fa fa-key" [class.icono-azul]= "usuarioService.ConfirmarPassword.valid" [class.icono-rojo]= "this.usuarioService.ConfirmarPassword.invalid && (this.usuarioService.ConfirmarPassword.touched || this.usuarioService.ConfirmarPassword.dirty)"></i>
+                        
+              </div>     
+              
+              <input type="password" class="form-control" formControlName="ConfirmarPassword" placeholder="Confirmar Contraseña"> 
+      
+          </div>
+
+          <!--Validaciones-->
+  
+          <div *ngIf="this.usuarioService.ConfirmarPassword.invalid && (this.usuarioService.ConfirmarPassword.touched || this.usuarioService.ConfirmarPassword.dirty)" class="alert alert-danger">
+  
+            <div *ngIf="this.usuarioService.ConfirmarPassword.hasError('required')">
+                La confirmación de la contraseña es requerida
+            </div>
+  
+              
+            <div *ngIf="this.usuarioService.ConfirmarPassword.hasError('passwordDiferente')">
+  
+                Las contraseñas deben coincidir
+  
+            </div>
+                
+          </div> 
+
+
+
+          
+          <br>
+          
+          <!-- Suscripción -->
+          <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="suscribirNotificias">
+              <label class="custom-control-label" for="suscribirNotificias">Subscribirse a noticias</label>
+          </div>
+  
+          <!-- Botón de iniciar sesión -->
+          <button class="btn btn-info my-4 btn-block" type="submit" [disabled] = "this.usuarioService.formularioRegistroUsuario.invalid">Registrarse</button>
+  
+  
+          <!-- Social register -->
+          <p>o registrarse con:</p>
+  
+          <a href="#" class="mx-2" role="button"><i class="fa fa-facebook-f light-blue-text"></i></a>
+          <a href="#" class="mx-2" role="button"><i class="fa fa-twitter light-blue-text"></i></a>
+          <a href="#" class="mx-2" role="button"><i class="fa fa-instagram light-blue-text"></i></a>
+          <a href="#" class="mx-2" role="button"><i class="fa fa-google light-blue-text"></i></a>
+  
+          <hr>
+  
+          <!-- Term of service -->
+          <p>Haciendo clic en
+              <em>Registrase</em> aceptas nuestros
+              <a href="" target="_blank">términos y condiciones</a>
+  
+      </form>
+    </div>
+  </div>

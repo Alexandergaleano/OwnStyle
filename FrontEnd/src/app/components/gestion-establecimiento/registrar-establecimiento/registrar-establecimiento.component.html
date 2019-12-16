@@ -1,0 +1,172 @@
+<form [formGroup]="this.gestionEstablecimientoService.formularioRegistroEstablecimiento" (ngSubmit)="onSubmit()">
+
+    <!--Nombre del establecimiento-->
+    <div class="form-group">
+
+      <div class="input-group">
+
+          <div class="input-group-text bg-white">
+
+                  <i class="fa fa-user-circle" [class.blue-icon]="this.gestionEstablecimientoService.Nombre.valid" [class.red-icon]="this.gestionEstablecimientoService.Nombre.invalid && (this.gestionEstablecimientoService.Nombre.touched || this.gestionEstablecimientoService.Nombre.dirty)"></i>
+                  
+          </div>
+
+          <input type="hidden" formControlName="IdEstablecimiento" name="IdEstablecimiento">
+          <input name="Nombre" formControlName="Nombre" class="form-control" placeholder="Nombre del establecimiento"> 
+
+      </div>
+
+      <!--Validaciones-->
+
+      <div *ngIf="this.gestionEstablecimientoService.Nombre.invalid && (this.gestionEstablecimientoService.Nombre.touched || this.gestionEstablecimientoService.Nombre.dirty)" class="alert alert-danger">
+
+          <div *ngIf="this.gestionEstablecimientoService.Nombre.hasError('required')">
+
+              El nombre del establecimiento es requerido
+
+          </div>
+
+          <div *ngIf="this.gestionEstablecimientoService.Nombre.hasError('pattern')">
+
+              El nombre debe contener solo letras
+
+          </div>
+            
+      </div>
+
+  </div> 
+
+  
+
+  <!--Dirección del establecimiento-->
+
+  <div class="form-group ">
+
+      <div class="input-group">
+          <div class="input-group-prepend">
+              <div class="input-group-text bg-white">
+                  <i class="fa fa-home" [class.blue-icon]="this.gestionEstablecimientoService.Direccion.valid" [class.red-icon]="this.gestionEstablecimientoService.Direccion.invalid && (this.gestionEstablecimientoService.Direccion.touched || this.gestionEstablecimientoService.Direccion.dirty)"></i>
+              </div>
+              
+          </div>           
+
+          <input name="Direccion" formControlName = "Direccion" class="form-control" placeholder="Dirección del establecimiento">                     
+
+      </div> 
+      
+      <div *ngIf="this.gestionEstablecimientoService.Direccion.invalid && (this.gestionEstablecimientoService.Direccion.touched || this.gestionEstablecimientoService.Direccion.dirty)" class="alert alert-danger">
+
+          <div *ngIf="this.gestionEstablecimientoService.Direccion.hasError('required')">
+
+              La dirección del establecimiento es requerida
+
+          </div>
+
+          <div *ngIf="this.gestionEstablecimientoService.Direccion.hasError('maxlength')">
+
+                  La dirección del establecimiento debe tener máximo 60 carácteres
+  
+          </div>
+                
+      </div>
+          
+  </div>  
+
+  <div class="row">    
+
+      <!--Teléfono-->
+      
+      <div class="form-group col-md-6">
+
+          <div class="input-group">
+              <div class="input-group-prepend">
+                  <div class="input-group-text bg-white">
+                      <i class="fa fa-phone" [class.blue-icon]="this.gestionEstablecimientoService.Telefono.valid" [class.red-icon]="this.gestionEstablecimientoService.Telefono.invalid && (this.gestionEstablecimientoService.Telefono.touched || this.gestionEstablecimientoService.Telefono.dirty)"></i>
+                  </div>
+                  
+              </div>           
+
+              <input name="Telefono" formControlName = "Telefono" class="form-control" placeholder="Teléfono">                     
+
+          </div> 
+
+      <!--Validaciones-->
+
+          <div *ngIf="this.gestionEstablecimientoService.Telefono.invalid && (this.gestionEstablecimientoService.Telefono.touched || this.gestionEstablecimientoService.Telefono.dirty)" class="alert alert-danger">
+
+              <div *ngIf="this.gestionEstablecimientoService.Telefono.hasError('required')">
+  
+                  El teléfono del establecimiento es requerido
+  
+              </div>
+
+              <div *ngIf="this.gestionEstablecimientoService.Telefono.hasError('minlength')">
+  
+                  El teléfono del establecimiento debe tener mínimo 5 carácteres
+  
+              </div>
+
+              <div *ngIf="this.gestionEstablecimientoService.Telefono.hasError('maxlength')">
+
+                  El teléfono del establecimiento debe tener máximo 15 carácteres
+      
+              </div>
+
+              <div *ngIf="this.gestionEstablecimientoService.Telefono.hasError('pattern')">
+
+                  El teléfono del establecimiento debe contener solo números
+          
+              </div>
+                
+          </div>
+          
+          
+              
+      </div>  
+
+      <!--Email-->
+          
+      <div class="form-group col-md-6">
+          <div class="input-group">
+              <div class="input-group-prepend">
+                  <div class="input-group-text bg-white">
+                      <i class="fa fa-at" [class.blue-icon]="this.gestionEstablecimientoService.Email.valid" [class.red-icon]="this.gestionEstablecimientoService.Email.invalid && (this.gestionEstablecimientoService.Email.touched || this.gestionEstablecimientoService.Email.dirty)"></i>
+                  </div>                
+              </div>  
+              <input name="Email" formControlName = "Email" class="form-control" placeholder="Email">                     
+
+          </div>
+          
+          <!--Validaciones-->
+
+          <div *ngIf="this.gestionEstablecimientoService.Email.invalid && (this.gestionEstablecimientoService.Email.touched || this.gestionEstablecimientoService.Email.dirty)" class="alert alert-danger">
+
+                  <div *ngIf="this.gestionEstablecimientoService.Email.hasError('required')">
+      
+                      El email del establecimiento es requerido
+      
+                  </div>
+
+                  <div *ngIf="this.gestionEstablecimientoService.Email.hasError('maxlength')">
+  
+                          El email del establecimiento debe tener máximo 40 carácteres
+          
+                  </div>
+
+                  <div *ngIf="this.gestionEstablecimientoService.Email.hasError('pattern')">
+  
+                          El email del establecimiento debe tener un formato de correo
+          
+                  </div>
+                    
+              </div>
+          
+      </div>
+
+  </div>
+
+  <div class="form-group">
+          <button class="btn btn-primary btn-lg btn-block" [disabled]="this.gestionEstablecimientoService.formularioRegistroEstablecimiento.invalid"  type="submit"> <i class="fa fa-save"></i> Aceptar</button>
+  </div>
+
+</form>

@@ -1,0 +1,38 @@
+<form>
+    <div class="form-group">   
+        <div class="input-group">
+            <div class="input-group-text bg-white">
+                <i class="fa fa-search"></i>
+            </div>
+            <input type="text" name="filtrar" class="form-control" placeholder="Buscar" [(ngModel)] = "gestionEstablecimientoService.filtroEstablecimiento">
+        </div>
+    </div>
+
+</form>
+
+<table class="table table-hover">
+
+        <thead>
+    
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Email</th>
+            </tr>
+    
+    
+        </thead>
+    
+        <tbody>
+            <tr *ngFor="let establecimiento of gestionEstablecimientoService.listaEstablecimiento  | filtroEstablecimiento:'Nombre':gestionEstablecimientoService.filtroEstablecimiento">
+                <td (click)="llenarFormularioEstablecimiento(establecimiento)">{{establecimiento.Nombre}}</td>
+                <td (click)="llenarFormularioEstablecimiento(establecimiento)">{{establecimiento.Telefono}}</td>
+                <td (click)="llenarFormularioEstablecimiento(establecimiento)">{{establecimiento.Email}}</td>
+                <td > <i (click) = "eliminarEstablecimiento(establecimiento.IdEstablecimiento)" class="fa fa-trash fa-lg text-danger"></i></td>
+    
+            </tr>
+    
+        </tbody>
+    
+    
+    </table>

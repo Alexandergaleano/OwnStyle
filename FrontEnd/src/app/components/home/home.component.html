@@ -1,0 +1,19 @@
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand">Navbar</a>
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="cerrarSesion()">Cerrar Sesión</button>
+    </form>
+  </nav>
+
+
+
+  <div class="card m-5" style="width: 18rem" *ngIf="this.perfilUsuario">
+    <ul class="list-group">
+      <li class="list-group-item"><strong>Nombre usuario: </strong> {{this.perfilUsuario.UserName}}</li>
+      <li class="list-group-item"><strong>Nombre Completo: </strong> {{this.perfilUsuario.Nombre}}</li>
+      <li class="list-group-item"><strong>Email: </strong> {{this.perfilUsuario.Email}}</li>
+    </ul>  
+  </div>
+
+
